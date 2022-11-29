@@ -252,6 +252,7 @@ export class ElasticSearchSearchEngine implements SearchEngine {
 
   async getIndexer(type: string) {
     const alias = this.constructSearchAlias(type);
+    const indexerLogger = this.logger.child({ documentType: type });
 
     const indexer = new ElasticSearchSearchEngineIndexer({
       type,
@@ -259,26 +260,26 @@ export class ElasticSearchSearchEngine implements SearchEngine {
       indexSeparator: this.indexSeparator,
       alias,
       elasticSearchClientWrapper: this.elasticSearchClientWrapper,
-      logger: this.logger,
+      logger: indexerLogger,
       batchSize: this.batchSize,
     });
 
     // Attempt cleanup upon failure.
     indexer.on('error', async e => {
-      this.logger.error(`Failed to index documents for type ${type}`, e);
+      indexerLogger.error(`Failed to index documents for type ${type}`, e);
       try {
         const response = await this.elasticSearchClientWrapper.indexExists({
           index: indexer.indexName,
         });
         const indexCreated = response.body;
         if (indexCreated) {
-          this.logger.info(`Removing created index ${indexer.indexName}`);
+          indexerLogger.info(`Removing created index ${indexer.indexName}`);
           await this.elasticSearchClientWrapper.deleteIndex({
             index: indexer.indexName,
           });
         }
       } catch (error) {
-        this.logger.error(`Unable to clean up elastic index: ${error}`);
+        indexerLogger.error(`Unable to clean up elastic index: ${error}`);
       }
     });
 
