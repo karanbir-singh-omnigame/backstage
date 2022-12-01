@@ -1,5 +1,19 @@
 # @backstage/core-components
 
+## 0.12.1-next.2
+
+### Patch Changes
+
+- d2e3bf6737: Made AlertDisplay not crash on undefined messages
+- 5fb6d5e92e: Updated dependency `@react-hookz/web` to `^19.0.0`.
+- 8015ff1258: Tweaked wording to use inclusive terminology
+- Updated dependencies
+  - @backstage/config@1.0.5-next.1
+  - @backstage/core-plugin-api@1.1.1-next.1
+  - @backstage/errors@1.1.4-next.1
+  - @backstage/theme@0.2.16
+  - @backstage/version-bridge@1.0.3-next.0
+
 ## 0.12.1-next.1
 
 ### Patch Changes

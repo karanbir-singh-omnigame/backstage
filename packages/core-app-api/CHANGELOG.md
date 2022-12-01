@@ -1,5 +1,16 @@
 # @backstage/core-app-api
 
+## 1.2.1-next.2
+
+### Patch Changes
+
+- 8015ff1258: Tweaked wording to use inclusive terminology
+- Updated dependencies
+  - @backstage/config@1.0.5-next.1
+  - @backstage/core-plugin-api@1.1.1-next.1
+  - @backstage/types@1.0.2-next.1
+  - @backstage/version-bridge@1.0.3-next.0
+
 ## 1.2.1-next.1
 
 ### Patch Changes
