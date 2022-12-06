@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: backstage_karanbir
   description: |
-    Backstage is an open-source developer portal that puts the developer experience testing.
+    Backstage is an open-source developer portal that puts the developer experience testing version 2.
   links:
     - title: Website
       url: http://backstage.io
